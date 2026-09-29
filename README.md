@@ -30,22 +30,50 @@ whois networkwalks.com
 
 
 First, I used **WHOIS** to obtain publicly available domain registration information and identify the domain’s name servers. The results provided information about the domain registration and hosting infrastructure.
+
 ![](whois.png)
 
 ### whatweb
 ```bash
 whatweb networkwalks.com
 ```
-I then used **WhatWeb** to identify technologies used by the website. The results identified **WordPress 7.0.4** and **WP Download Manager 3.3.58**, along with other information exposed by the website.
+I then used **WhatWeb** to identify technologies used by the website. The results identified WordPress 7.1.2 and WordPress Download Manager 3.3.58, along with other information exposed by the website.
 
 ![](whatweb.png)
 
-Using **Nslookup**, I resolved the domain name to its IP address. The provided result identified **192.232.216.135**.
+### nslookup
 
-I used **Curl** with the `-I` option to inspect the HTTP response headers. This provided additional information about the web application and exposed the WordPress REST API endpoint `/wp-json/`.
+```bash
+nslookup networkwalks.com
+```
+Using **Nslookup**, I resolved the domain name to its IP address. The provided result identified 192.232.216.135.
 
-Next, I used **Wafw00f** to determine whether a Web Application Firewall was protecting the website. The result identified **ModSecurity (SpiderLabs)**.
+![](nslookup.png)
 
+### curl -I
+
+```bash
+curl -I https://networkwalks.com
+```
+I used **Curl** with the `-I` option to inspect the HTTP response headers. This provided additional information about the web application and exposed the WordPress REST API endpoint wp-json.
+
+![](curl.png)
+
+### wafw00f
+
+```bash
+wafw00f networkwalks.com
+```
+
+Next, I used **Wafw00f** to determine whether a Web Application Firewall was protecting the website. The result identified ModSecurity (SpiderLabs).
+
+![](waf00f.png)
+
+### DNSRecon
+
+```bash
+wafw00f networkwalks.com
+```
 Finally, I used **DNSRecon** to enumerate DNS records. The results provided information relating to name servers, mail servers, SPF/TXT records, service records and DNS software information.
 
 ## 4.2 Network Scanning with Zenmap
