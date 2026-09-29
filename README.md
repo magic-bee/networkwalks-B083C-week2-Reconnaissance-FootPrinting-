@@ -34,15 +34,17 @@ whois networkwalks.com
 
 First, I used **WHOIS** to obtain publicly available domain registration information and identify the domain’s name servers. The results provided information about the domain registration and hosting infrastructure.
 
-![](whois.png)
+![](images/whois.png)
 
 ## whatweb
+
 ```bash
 whatweb networkwalks.com
 ```
+
 I then used **WhatWeb** to identify technologies used by the website. The results identified WordPress 7.1.2 and WordPress Download Manager 3.3.58, along with other information exposed by the website.
 
-![](whatweb.png)
+![](images/whatweb.png)
 
 ## nslookup
 
@@ -51,7 +53,7 @@ nslookup networkwalks.com
 ```
 Using **Nslookup**, I resolved the domain name to its IP address. The provided result identified 192.232.216.135.
 
-![](nslookup.png)
+![](images/nslookup.png)
 
 ## curl -I
 
@@ -60,7 +62,7 @@ curl -I https://networkwalks.com
 ```
 I used **Curl** with the `-I` option to inspect the HTTP response headers. This provided additional information about the web application and exposed the WordPress REST API endpoint wp-json.
 
-![](curl.png)
+![](images/curl.png)
 
 ## wafw00f
 
@@ -70,7 +72,7 @@ wafw00f networkwalks.com
 
 Next, I used **Wafw00f** to determine whether a Web Application Firewall was protecting the website. The result identified ModSecurity (SpiderLabs).
 
-![](wafw00f.png)
+![](images/wafw00f.png)
 
 ## DNSRecon
 
@@ -79,7 +81,7 @@ dnsrecon -d networkwalks.com
 ```
 Finally, I used **DNSRecon** to enumerate DNS records. The results provided information relating to name servers, mail servers, SPF/TXT records, service records and DNS software information.
 
-![](dnsrecon.png)
+![](images/dnsrecon.png)
 
 ### PM2. GOOGLE HACKING DATABASE (GDHB)
 
@@ -102,7 +104,7 @@ Here's what I found:
 | 9 | `http://phildorian.hopto.org:8080/` | `intitle:"webcamxp" "Flash JPEG Stream"` |
 | 10 | `http://myfishcam.homedns.org:444/ ` | `intitle:"webcamxp" "Flash JPEG Stream"` |
 
-![](cams.png)
+![](images/cams.png)
 
 ## 10 exposed maths pdfs
 
@@ -119,7 +121,7 @@ Here's what I found:
 | 9 | `https://www.sci.brooklyn.cuny.edu/~mate/misc/determinants.pdf` | `intitle:index.of "parent directory" mathematics pdf` |
 | 10 | `http://erewhon.superkuh.com/library/Math/In%20Pursuit%20of%20the%20Traveling%20Salesman_%20Mathematics%20at%20the%20Limits%20of%20Computation_%20William%20J%20Cook_%202011.pdf ` | `intitle:index.of "parent directory" mathematics book pdf` |
 
-![](books.png)
+![](images/books.png)
 
 ### PM3. Maltego
 
@@ -128,7 +130,7 @@ Create a domain called networkwalks.com. Harvest an email related transform.
 It will then map out emails related to networkwalks.com
 Maltego is essentially used to map relationships between people, domains, infrastructure, social media data, and breached information through interactive graph analysis.
 
-![](maltego.png)
+![](images/maltego.png)
 
 ### PM4. Harvester
 
@@ -142,21 +144,21 @@ theHarvester -d microsoft.com -l 1000 -b baidu
 ```
 Here -d is the target domain, -l limits the number of results to a 1000, and -b sets the data source. theHarvester then extracts the details and shows them on screen.
 
-![](harvester1.png)
+![](images/harvester1.png)
 
 - all the sources:
 
 ```bash
 theHarvester -d microsoft.com -l 50 -b all
 ```
-![](harvester2.png)
+![](images/harvester2.png)
 
 ### PM5. NETWORK SCANNING WITH ZENMAP
 
 I used **Zenmap** to perform network discovery on my local network. The practical required me to identify my local IP address and subnet, discover live hosts, identify their IP and MAC addresses, and generate a network topology. I first used the Windows `ipconfig` command to identify my local IP address and LAN subnet. I then entered the subnet into Zenmap and selected **Ping Scan** to identify active hosts. Through this I identified that there was only 1 device on the network and was able to locate a MAC address too.
 After completing the scan, I opened the **Topology** section in Zenmap, enabled the legend and saved the network topology in PDF format as required by the practical task.
 
-![](zenmap.png)
+![](images/zenmap.png)
 
 #  Tools & Resources
 
